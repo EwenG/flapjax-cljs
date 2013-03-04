@@ -29,13 +29,13 @@ Example
 
 ```clojure
 (def test-atom (atom {:a "a" :b "b"}))
-(def atom-B (F-cljs/extractValueB test-atom))
-(F-cljs/valueNow atom-B) ; => {:a "a" :b "b"}
-(with-B
-    (em/defsnippet test-snippet :compiled "test-resources/test.html" ["p"] [val1]
+(def atom-B (com.ewen.flapjax-cljs/extractValueB test-atom))
+(com.ewen.flapjax-cljs/valueNow atom-B) ; => {:a "a" :b "b"}
+(com.ewen.flapjax-cljs-macros/with-B
+    (enfocus.macros/defsnippet test-snippet :compiled "test-resources/test.html" ["p"] [val1]
       ["p"] (em/content (:a val1))))
 (.log js/console (test-snippet atom-B)) ; => <p>a</p>
 (swap! test-atom #(assoc % :a "new-a"))
-(F-cljs/valueNow atom-B) ; => {:a "new-a" :b "b"}
+(com.ewen.flapjax-cljs/valueNow atom-B) ; => {:a "new-a" :b "b"}
 (.log js/console (test-snippet atom-B)) ; => <p>new-a</p>
 ```
