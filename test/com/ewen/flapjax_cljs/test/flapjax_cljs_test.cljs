@@ -57,8 +57,13 @@
 (def test-atom (atom {:a "a" :b "b"}))
 (def atom-B (F-cljs/extractValueB test-atom))
 (F-cljs/valueNow atom-B)
+(with-B
+    (em/defsnippet test-snippet :compiled "test-resources/test.html" ["p"] [val1]
+      ["p"] (em/content (:a val1))))
+(log (test-snippet atom-B))
 (swap! test-atom #(assoc % :a "new-a"))
 (F-cljs/valueNow atom-B)
+(log (test-snippet atom-B))
 
 
 

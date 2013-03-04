@@ -1,7 +1,7 @@
 flapjax-cljs
 ============
 
-A library to make it easier to use flapjax from clojurescript.
+A library to improve the experience of using [flapjax](http://www.flapjax-lang.org/) from clojurescript.
 
 Usage
 =====
@@ -18,8 +18,24 @@ Features
 
 * Makes flapjax compatible with the google-closure compiler `:advanced` compilation mode.
 
-* Several flapjax functions are defined on prototypes. Flapjax-cljs wraps the flapjax functions in the `com.ewen.flapjax-cljs` namespace to make them plain functions.
+* Several flapjax functions are defined on prototypes. Flapjax-cljs wraps the flapjax functions in the `com.ewen.flapjax-cljs` namespace to make them plain functions. Original flapjax functions are still available in the `F` namespace.
 
-* Extends the `extractValueB` functions to work on [clojurescript atoms](http://clojure.org/atoms).
+* Extends the `extractValueB` function to work on [clojurescript atoms](http://clojure.org/atoms).
 
-* When using flapjax with the [enfocus templating library](https://github.com/ckirkendall/enfocus) together, the `com.ewen.flapjax-cljs-macros.with-B` macro can be used to transform enfocus snippets into snippets that accept flapjax behavior objects as parameters.
+* Helps to manipulate flapjax objects with the [enfocus templating library](https://github.com/ckirkendall/enfocus). The `com.ewen.flapjax-cljs-macros.with-B` macro can be used to transform enfocus snippets into snippets that accept flapjax behavior objects as parameters.
+
+Example
+=======
+
+```clojure
+(def test-atom (atom {:a "a" :b "b"}))
+(def atom-B (F-cljs/extractValueB test-atom))
+(F-cljs/valueNow atom-B) ; => {:a "a" :b "b"}
+(with-B
+    (em/defsnippet test-snippet :compiled "test-resources/test.html" ["p"] [val1]
+      ["p"] (em/content (:a val1))))
+(log (test-snippet atom-B)) ; => <p>a</p>
+(swap! test-atom #(assoc % :a "new-a"))
+(F-cljs/valueNow atom-B) ; => {:a "new-a" :b "b"}
+(log (test-snippet atom-B)) ; => <p>new-a</p>
+```
