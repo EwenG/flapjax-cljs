@@ -18,7 +18,7 @@ Features
 
 * Makes flapjax compatible with the google-closure compiler `:advanced` compilation mode.
 
-* Several flapjax functions are defined on prototypes. Flapjax-cljs wraps the flapjax functions in the `com.ewen.flapjax-cljs` namespace to make them plain functions. Original flapjax functions are still available in the `F` namespace.
+* Several flapjax functions are defined on prototypes. Flapjax-cljs wraps the flapjax functions in the `com.ewen.flapjax-cljs` namespace to make them plain functions. The original flapjax functions are still available in the `F` namespace.
 
 * Extends the `extractValueB` function to work on [clojurescript atoms](http://clojure.org/atoms).
 
