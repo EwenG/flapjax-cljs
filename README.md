@@ -39,3 +39,8 @@ Example
 (com.ewen.flapjax-cljs/valueNow atom-B) ; => {:a "new-a" :b "b"}
 (.log js/console (test-snippet atom-B)) ; => <p>new-a</p>
 ```
+
+Licence
+=======
+
+Distributed under the Eclipse Public License, the same as Clojure.
