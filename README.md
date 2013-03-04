@@ -22,7 +22,7 @@ Features
 
 * Extends the `extractValueB` function to work on [clojurescript atoms](http://clojure.org/atoms).
 
-* Helps to manipulate flapjax objects with the [enfocus templating library](https://github.com/ckirkendall/enfocus). The `com.ewen.flapjax-cljs-macros.with-B` macro can be used to transform enfocus snippets into snippets that accept flapjax behavior objects as parameters.
+* Helps to manipulate flapjax objects with the [enfocus templating library](https://github.com/ckirkendall/enfocus). The `com.ewen.flapjax-cljs-macros.with-B` macro can be used to transform enfocus snippets into snippets that accept flapjax behavior objects as parameters. The snippet is automatically updated when the behaviors change.
 
 Example
 =======
@@ -34,8 +34,8 @@ Example
 (with-B
     (em/defsnippet test-snippet :compiled "test-resources/test.html" ["p"] [val1]
       ["p"] (em/content (:a val1))))
-(log (test-snippet atom-B)) ; => <p>a</p>
+(.log js/console (test-snippet atom-B)) ; => <p>a</p>
 (swap! test-atom #(assoc % :a "new-a"))
 (F-cljs/valueNow atom-B) ; => {:a "new-a" :b "b"}
-(log (test-snippet atom-B)) ; => <p>new-a</p>
+(.log js/console (test-snippet atom-B)) ; => <p>new-a</p>
 ```
