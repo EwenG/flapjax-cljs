@@ -151,6 +151,8 @@ F.internal_.propagatePulse = function (pulse, node) {
   }
 };
 
+
+
 /**
 * Event: Array Node b * ( (Pulse a -> Void) * Pulse b -> Void)
 * @constructor
@@ -228,6 +230,8 @@ F.zeroE = function() {
 };
 
 
+
+
 /**
 * Create an event stream that fires just one event with the value val.
 *
@@ -246,7 +250,8 @@ F.zeroE = function() {
 */
 F.oneE = function(val) {
   var sent = false;
-  var evt = new F.EventStream([],function(pulse) {
+    var evt = new F.EventStream([],function(pulse) {
+    evt = null;
     if (sent) { throw ('oneE : received an extra value'); } sent = true;
                 return pulse; });
   window.setTimeout(function() {
@@ -492,6 +497,9 @@ F.recE = function(fn) {
     inE.sendEvent(x); });
   return outE;
 };
+
+
+
 
 F.internal_.delayStaticE = function (event, time) {
   
