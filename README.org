@@ -1,6 +1,6 @@
 * flapjax-cljs
 
-A library to improve the experience of using [flapjax](http://www.flapjax-lang.org/) from clojurescript.
+A library to improve the experience of using [[http://www.flapjax-lang.org/][flapjax]]
 
 * Usage
 
@@ -12,7 +12,7 @@ Simply add flapjax-cljs as a dependency in you project.clj :
 
 * Changelog
 
-See [changelog.org](https://github.com/EwenG/flapjax-cljs/blob/master/changelog.org)
+See [[https://github.com/EwenG/flapjax-cljs/blob/master/changelog.org][changelog]]
 
 * Features
 
