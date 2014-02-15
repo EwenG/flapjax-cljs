@@ -1,6 +1,6 @@
 * flapjax-cljs
 
-A library to improve the experience of using [[http://www.flapjax-lang.org/][flapjax]]
+A library to improve the experience of using [[http://www.flapjax-lang.org/][flapjax]] from clojurescript.
 
 * Usage
 
