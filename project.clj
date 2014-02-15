@@ -6,9 +6,9 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2156"]
+                 [enfocus "1.0.1"]
                  [com.cemerick/clojurescript.test "0.2.2" :scope "test"]]
-  :profiles {:dev {:dependencies [[domina "1.0.2"]
-                                  [enfocus "1.0.1"]]}}
+  :profiles {:dev {:dependencies [[domina "1.0.2"]]}}
   :plugins [[lein-cljsbuild "1.0.2"]]
   :hooks [leiningen.cljsbuild]
   :cljsbuild {:builds [{:id "dev"
