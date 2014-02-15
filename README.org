@@ -22,9 +22,9 @@ See [[https://github.com/EwenG/flapjax-cljs/blob/master/changelog.org][changelog
 
  - Several flapjax functions are defined on prototypes. Flapjax-cljs wraps the flapjax functions in the `com.ewen.flapjax-cljs` namespace to make them plain functions. The original flapjax functions are still available in the `F` namespace.
 
- - Extends the `extractValueB` function to work on [clojurescript atoms](http://clojure.org/atoms).
+ - Extends the `extractValueB` function to work on [[http://clojure.org/atoms][clojurescript atoms]].
 
- - Helps to manipulate flapjax objects with the [enfocus templating library](https://github.com/ckirkendall/enfocus). The `com.ewen.flapjax-cljs-macros.with-B` macro can be used to transform enfocus snippets into snippets that accept flapjax behavior objects as parameters. The snippet is automatically updated when the behaviors change.
+ - Helps to manipulate flapjax objects with the [[https://github.com/ckirkendall/enfocus][enfocus templating library]]. The `com.ewen.flapjax-cljs-macros.with-B` macro can be used to transform enfocus snippets into snippets that accept flapjax behavior objects as parameters. The snippet is automatically updated when the behaviors change.
 
 * Example
 
