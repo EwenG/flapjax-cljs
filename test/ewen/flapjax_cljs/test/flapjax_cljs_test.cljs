@@ -1,15 +1,15 @@
-(ns com.ewen.flapjax-cljs.test.flapjax-cljs-test
+(ns ewen.flapjax-cljs.test.flapjax-cljs-test
   (:require [cemerick.cljs.test :as t]
-            [com.ewen.flapjax-cljs :as F-cljs]
-            [com.ewen.utils-cljs.utils :refer [log]]
+            [ewen.flapjax-cljs :as F-cljs]
             [domina :refer [append! html-to-dom]]
-            [enfocus.core :as ef])
-  (:require-macros [cemerick.cljs.test :refer [is deftest with-test 
-                                               run-tests testing 
-                                               thrown-with-msg?]]
+            [enfocus.core :as ef]
+            [goog.dom])
+  (:require-macros [cemerick.cljs.test :refer [is deftest run-tests]]
                    [enfocus.macros :as em]
-                   [com.ewen.flapjax-cljs-macros :refer [with-B]]))
+                   [ewen.flapjax-cljs-macros :refer [with-B]]))
 
+
+(enable-console-print!)
 
 (defn get-test-B []
   (let [test-E (F-cljs/receiverE)
@@ -40,9 +40,11 @@
 
 
 
-#_(load-namespace 'com.ewen.flapjax-cljs.test.flapjax-cljs-test)
 
-#_(t/test-ns 'com.ewen.flapjax-cljs.test.flapjax-cljs-test)
+
+
+
+#_(t/test-ns 'ewen.flapjax-cljs.test.flapjax-cljs-test)
 
 
 
@@ -60,10 +62,10 @@
 (with-B
     (em/defsnippet test-snippet :compiled "test-resources/test.html" ["p"] [val1]
       ["p"] (em/content (:a val1))))
-(log (test-snippet atom-B))
+(.log js/console (test-snippet atom-B))
 (swap! test-atom #(assoc % :a "new-a"))
 (F-cljs/valueNow atom-B)
-(log (test-snippet atom-B))
+(.log js/console (test-snippet atom-B))
 
 
 

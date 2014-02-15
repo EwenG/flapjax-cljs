@@ -1,4 +1,4 @@
-(ns com.ewen.flapjax-cljs-macros
+(ns ewen.flapjax-cljs-macros
   (:require [clojure.string :refer [upper-case]]))
 
 
@@ -34,19 +34,19 @@ backward compatability"
            (fn [func#]
              (fn ~args ;args are the parameter provided by the user when using the snippet
                (let [get-root-elt-B# (fn [valB#] ;get-root-elt-B calls the original snippet on its arguments using the liftB function : (liftB original-snippet args)
-                                       (->> (comp #(.-firstChild %) func#) 
-                                            (conj valB#) 
-                                            (apply com.ewen.flapjax-cljs/liftB)))
-                     root-elt# (-> (list ~@args) 
-                                   (get-root-elt-B#) 
-                                   (com.ewen.flapjax-cljs/valueNow))
+                                       (->> (comp #(.-firstChild %) func#)
+                                            (conj valB#)
+                                            (apply ewen.flapjax-cljs/liftB)))
+                     root-elt# (-> (list ~@args)
+                                   (get-root-elt-B#)
+                                   (ewen.flapjax-cljs/valueNow))
                      update-fn# (fn [new-val#] ;The function that updates the returned DOM element when one of the provided Behaviors changes.
                                   (do (goog.dom/removeChildren root-elt#)
-                                      (dorun 
-                                       (map 
-                                        #(goog.dom/appendChild root-elt# (.cloneNode % true)) 
+                                      (dorun
+                                       (map
+                                        #(goog.dom/appendChild root-elt# (.cloneNode % true))
                                         (.-childNodes new-val#)))))]
-                 (com.ewen.flapjax-cljs/liftB update-fn# (get-root-elt-B# (list ~@args)))
+                 (ewen.flapjax-cljs/liftB update-fn# (get-root-elt-B# (list ~@args)))
                  root-elt#)))]
        (~defs ~s-name ~@body) ;Defines the original snippet
        (def ~sym (snippet-B-builder# ~s-name)) ;Defines the new-snippet (the one that can take Behaviors as arguments)
@@ -59,9 +59,9 @@ backward compatability"
           root-elt (-> valB (get-root-elt-B) (valueNow))
           update-fn (fn [new-val]
                       (do (dom/removeChildren root-elt)
-                          (dorun 
-                           (map 
-                            #(dom/appendChild root-elt (.cloneNode % true)) 
+                          (dorun
+                           (map
+                            #(dom/appendChild root-elt (.cloneNode % true))
                             (.-childNodes new-val)))))]
       (liftB update-fn (get-root-elt-B valB))
       root-elt)))

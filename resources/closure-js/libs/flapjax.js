@@ -34,6 +34,8 @@
 // Hacks to build standalone or as a module.
 /** @suppress JSC_UNDEFINED_VARIABLE */
 goog.provide('F');
+goog.provide('F.dom_');
+goog.provide('F.Behavior');
 
 /**
 * @namespace Flapjax

@@ -1,0 +1,15 @@
+* 1.0.1
+
+** Renamed project to ewen/flapjax-cljs
+** Update clojure version
+** Update clojurescript version
+** Remove piggieback dependency (I am now using the Lightable internal browser when testing
+clojurescript)
+** Remove Ring/Compojure dependency (I am now using the Lightable internal browser when
+testing clojurescript)
+** Update clojurescript.test version
+** Remove utils-cljs dependency
+** Update domina version
+** Update lein-cljsbuild version
+** Changed the filterE function signature to be more consistent with clojure core functions
+
