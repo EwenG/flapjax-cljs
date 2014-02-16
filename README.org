@@ -7,7 +7,7 @@ A library to improve the experience of using [[http://www.flapjax-lang.org/][fla
 Simply add flapjax-cljs as a dependency in you project.clj :
 
 #+begin_src clojure
-[com.ewen.flapjax-cljs "1.0.1"]
+[com.ewen.flapjax-cljs "1.0.2"]
 #+end_src
 
 * Changelog

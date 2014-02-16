@@ -1,4 +1,4 @@
-* 1.0.1
+* 1.0.2
 
  - Renamed project to ewen/flapjax-cljs
  - Update clojure version
@@ -12,4 +12,8 @@ testing clojurescript)
  - Update domina version
  - Update lein-cljsbuild version
  - Changed the filterE function signature to be more consistent with clojure core functions
+
+* 1.0.1
+
+- Broken
 

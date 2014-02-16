@@ -1,4 +1,4 @@
-(defproject ewen/flapjax-cljs "1.0.1-SNAPSHOT"
+(defproject ewen/flapjax-cljs "1.0.2-SNAPSHOT"
   :description "Utilities to use flapjax from clojurescript"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
